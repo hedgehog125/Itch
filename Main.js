@@ -77,7 +77,6 @@ function save() {
 	"Pass": getCookie("Pass"),
 	"ProjectId": id,
 	"ProjectData": Project,
-	"ProjectName": projectname
 	},function() {
 		var res = http.responseText
 		if (res[0] != "Ok") {
@@ -98,6 +97,15 @@ window.onbeforeunload = function(e) {
 		var dialogText = "You have unsaved changes."
 		e.returnValue = dialogText
 		return dialogText
+	}
+}
+
+
+function checkSave() {
+	if (lastSave != JSON.stringify(Project)) {
+		if (online) {
+			save()
+		}
 	}
 }
 
@@ -436,5 +444,5 @@ function background() {
 }
 
 
-
+setInterval(checkSave, 5000)
 setInterval(main, 30)
