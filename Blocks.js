@@ -73,5 +73,61 @@ Blocks = {
 			["arg","number","secs","2"],
 			["text","secs"]
 		]
-	}
+	},
+	"Say": {
+		"cat": "Looks",
+		"text": [
+			["text","Say"],
+			["arg","text","text to say","Hello!"]
+		]
+	},
+	"ThinkFor": {
+		"cat": "Looks",
+		"text": [
+			["text","Think"],
+			["arg","text","text to think","Hmm..."],
+			["text","for"],
+			["arg","number","secs","2"],
+			["text","secs"]
+		]
+	},
+	"Think": {
+		"cat": "Looks",
+		"text": [
+			["text","Think"],
+			["arg","text","text to think","Hmm..."]
+		]
+	},
+	"Show": {
+		"cat": "Looks",
+		"text": [
+			["text","Show"]
+		]
+	},
+	"SetCos": {
+		"cat": "Looks",
+		"text": [
+			["text","Set costume to"],
+			["arg","number","1"]
+		]
+	},
+	"SetSize": {
+		"cat": "Looks",
+		"text": [
+			["text","Set size to"],
+			["arg","number","100"],
+			["text","%"]
+		]
+	},
+	"SetSize": {
+		"cat": "Looks",
+		"text": [
+			["text","Set size to"],
+			["arg","number","100"],
+			["text","%"]
+		]
+	},
+	
+	
+	
 }
