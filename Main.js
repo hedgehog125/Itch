@@ -303,10 +303,10 @@ function scripts() {
 			spriteScripts[SelectedBlock]["y"] = MouseY
 			spriteScripts[SelectedBlock]["snappedTo"] = -1
 			var i = 0
-			for (i in spriteScripts) {
+			while (i < Object.keys(spriteScripts).length) {
 				if (SelectedBlock != i & spriteScripts[i]["snappedWith"] == -1 & spriteScripts[i]["snappedTo"] != SelectedBlock) {
 					if (spriteScripts[SelectedBlock]["x"] >= spriteScripts[i]["x"] - 2.5 & spriteScripts[SelectedBlock]["x"] <= spriteScripts[i]["x"] + spriteScripts[i]["width"] + 2.5) {
-						if (spriteScripts[SelectedBlock]["y"] >= spriteScripts[i]["y"] - 5 & spriteScripts[SelectedBlock]["y"] - 5 <= spriteScripts[i]["y"] + 5) {
+						if (spriteScripts[SelectedBlock]["y"] >= spriteScripts[i]["y"] - 4 & spriteScripts[SelectedBlock]["y"] - 5 <= spriteScripts[i]["y"] + 2) {
 							spriteScripts[SelectedBlock]["snappedTo"] = i
 							spriteScripts[i]["snappedWith"] = SelectedBlock
 							playSound("Snap")
@@ -315,6 +315,7 @@ function scripts() {
 						}
 					}
 				}
+				i++
 			}
 			SelectedBlock = -1
 			SelectedArg = -1

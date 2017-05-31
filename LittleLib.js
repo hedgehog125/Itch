@@ -7,6 +7,7 @@ Width = 300
 Height = 150
 lastKey = ""
 sounds = []
+usedSounds = {}
 
 
 if (! ogg) {
@@ -56,13 +57,20 @@ function playSound(src) {
 			newSounds[newSounds.length] = sounds[i]
 		}
 	}
-	sounds = newSounds
-	sounds[sounds.length] = new Audio()
-	if (ogg) {
-		sounds[sounds.length-1].src = "Sounds/" + src + ".ogg"
+	if (usedSounds[src] === undefined) {
+		sounds = newSounds
+		sounds[sounds.length] = new Audio()
+		if (ogg) {
+			sounds[sounds.length-1].src = "Sounds/" + src + ".ogg"
+		}
+		else {
+			sounds[sounds.length-1].src = "Sounds/" + src + ".mp3"
+		}
+		usedSounds[src] = sounds[sounds.length-1]
 	}
-	else {
-		sounds[sounds.length-1].src = "Sounds/" + src + ".mp3"
+	else { // Use cache.
+		sounds[sounds.length] = usedSounds[src]
+		sounds[sounds.length-1].currentTime = 0
 	}
 	sounds[sounds.length-1].play()
 }
