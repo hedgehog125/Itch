@@ -108,22 +108,14 @@ Blocks = {
 		"cat": "Looks",
 		"text": [
 			["text","Set costume to"],
-			["arg","number","1"]
+			["arg","number","cosId","1"]
 		]
 	},
 	"SetSize": {
 		"cat": "Looks",
 		"text": [
 			["text","Set size to"],
-			["arg","number","100"],
-			["text","%"]
-		]
-	},
-	"SetSize": {
-		"cat": "Looks",
-		"text": [
-			["text","Set size to"],
-			["arg","number","100"],
+			["arg","number","size","100"],
 			["text","%"]
 		]
 	},
