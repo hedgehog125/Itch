@@ -96,13 +96,11 @@ function save() {
 
 
 window.onbeforeunload = function(e) {
-	if (online) {
-		if (lastSave != JSON.stringify(Project)) {
+	if (lastSave != JSON.stringify(Project)) {
 			// From https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload
 			var dialogText = "You have unsaved changes."
 			e.returnValue = dialogText
 			return dialogText
-		}
 	}
 }
 
