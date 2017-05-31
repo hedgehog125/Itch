@@ -189,7 +189,7 @@ function block(id,x,y,args) {
 		else {
 			CanvasController.setOutlineColour("white")
 			CanvasController.setStrokeWidth(15)
-			var text = args[arg]
+			var text = args[arg]["Input"]
 			if (Blocks[id]["text"][item][1] == "number") {
 				CanvasController.setLineCap("round")
 			}
@@ -267,7 +267,7 @@ function blockChooser() {
 			var a = 0
 			for (a in Blocks[c]["text"]) {
 				if (Blocks[c]["text"][a][0] == "arg") {
-					args[args.length] = Blocks[c]["text"][a][3]
+					args[args.length] = {"Type":"Input","Input":Blocks[c]["text"][a][3]}
 				}
 			}
 			spriteScripts[spriteScripts.length] = {
@@ -346,7 +346,7 @@ function scripts() {
 			}
 			else {
 				if (lastKey != "" & ! keyCooldown) {
-					var input = c["args"][SelectedArg]
+					var input = c["args"][SelectedArg]["Input"]
 					if (lastKey == 13) {
 						SelectedBlock = -1
 						SelectedArg = -1
@@ -373,11 +373,11 @@ function scripts() {
 				if (click == 1 & ! clickCooldown) {
 					SelectedArg = JSON.parse(returned[0][0][0])
 					SelectedBlock = JSON.parse(i)
-					var before = c["args"][SelectedArg]
+					var before = c["args"][SelectedArg]["Input"]
 					var typeofArg = Blocks[c["id"]]["text"][returned[0][0][1]][1]
-					c["args"][SelectedArg] = prompt("Enter " + typeofArg + "...", c["args"][SelectedArg])
-					if (c["args"][SelectedArg] == null | c["args"][SelectedArg] == "" | ! (checkInput(typeofArg, c["args"][SelectedArg]))) {
-						c["args"][SelectedArg] = before
+					c["args"][SelectedArg]["Input"] = prompt("Enter " + typeofArg + "...", c["args"][SelectedArg])
+					if (c["args"][SelectedArg]["Input"] == null | c["args"][SelectedArg]["Input"] == "" | ! (checkInput(typeofArg, c["args"][SelectedArg]["Input"]))) {
+						c["args"][SelectedArg]["Input"] = before
 					}
 					click = 0
 					clickCooldown = true

@@ -1,6 +1,7 @@
 Blocks = {
 	"Move": {
 		"cat": "Motion",
+		"type": "Block",
 		 "text": [
 		 	["text","Move"],
 		 	["arg","number","steps","10"],
@@ -9,6 +10,7 @@ Blocks = {
 	},
 	"Turn": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text","Turn"],
 			["arg","number","deg","15"],
@@ -17,6 +19,7 @@ Blocks = {
 	},
 	"Point": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text","Point"],
 			["arg","number","deg","0"],
@@ -25,6 +28,7 @@ Blocks = {
 	},
 	"PointTo": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text","Point towards"],
 			["arg","text","sprite","sprite1"]
@@ -32,6 +36,7 @@ Blocks = {
 	},
 	"PointToXY": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text", "Point to XY"],
 			["arg","text","sprite","sprite1"]
@@ -39,6 +44,7 @@ Blocks = {
 	},
 	"Goto": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text", "Go to XY"],
 			["arg","number","x","0"],
@@ -47,6 +53,7 @@ Blocks = {
 	},
 	"GotoSprite": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text", "Go to"],
 			["arg","text","sprite","sprite1"]
@@ -54,6 +61,7 @@ Blocks = {
 	},
 	"GlideToXY": {
 		"cat": "Motion",
+		"type": "Block",
 		"text": [
 			["text", "Glide"],
 			["arg","number","secs","1"],
@@ -66,6 +74,7 @@ Blocks = {
 	
 	"SayFor": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Say"],
 			["arg","text","text to say","Hello!"],
@@ -76,6 +85,7 @@ Blocks = {
 	},
 	"Say": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Say"],
 			["arg","text","text to say","Hello!"]
@@ -83,6 +93,7 @@ Blocks = {
 	},
 	"ThinkFor": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Think"],
 			["arg","text","text to think","Hmm..."],
@@ -93,6 +104,7 @@ Blocks = {
 	},
 	"Think": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Think"],
 			["arg","text","text to think","Hmm..."]
@@ -100,12 +112,21 @@ Blocks = {
 	},
 	"Show": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Show"]
 		]
 	},
+	"Hide": {
+		"cat": "Looks",
+		"type": "Block",
+		"text": [
+			["text","Hide"]
+		]
+	},
 	"SetCos": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Set costume to"],
 			["arg","number","cosId","1"]
@@ -113,6 +134,7 @@ Blocks = {
 	},
 	"SetSize": {
 		"cat": "Looks",
+		"type": "Block",
 		"text": [
 			["text","Set size to"],
 			["arg","number","size","100"],
