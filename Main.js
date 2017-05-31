@@ -189,7 +189,7 @@ function block(id,x,y,args) {
 		else {
 			CanvasController.setOutlineColour("white")
 			CanvasController.setStrokeWidth(15)
-			var text = args[arg]["Input"]
+			var text = args[arg]
 			if (Blocks[id]["text"][item][1] == "number") {
 				CanvasController.setLineCap("round")
 			}
@@ -200,6 +200,9 @@ function block(id,x,y,args) {
 			}
 			if (text === undefined) {
 				text = Blocks[id]["text"][item][3]
+			}
+			else {
+				var text = args[arg]["Input"]
 			}
 			var width = CanvasController.measureTextWidth(text,4)
 			CanvasController.fillRect(X,y,width + 10,5)
