@@ -378,7 +378,7 @@ function scripts() {
 					SelectedBlock = JSON.parse(i)
 					var before = c["args"][SelectedArg]["Input"]
 					var typeofArg = Blocks[c["id"]]["text"][returned[0][0][1]][1]
-					c["args"][SelectedArg]["Input"] = prompt("Enter " + typeofArg + "...", c["args"][SelectedArg])
+					c["args"][SelectedArg]["Input"] = prompt("Enter " + typeofArg + "...", c["args"][SelectedArg]["Input"])
 					if (c["args"][SelectedArg]["Input"] == null | c["args"][SelectedArg]["Input"] == "" | ! (checkInput(typeofArg, c["args"][SelectedArg]["Input"]))) {
 						c["args"][SelectedArg]["Input"] = before
 					}

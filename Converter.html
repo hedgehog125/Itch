@@ -14,7 +14,7 @@ function convert(code) {
 			newCode["Stage"]["Scripts"][i]["args"][c] = {"Type":"Input","Input":newCode["Stage"]["Scripts"][i]["args"][c]}
 		}
 	}
-	save(JSON.stringify([newCode,code]),"new code.txt")
+	save(JSON.stringify([newCode,code[1]]),"new code.txt")
 }
 
 </script>
