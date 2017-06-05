@@ -187,8 +187,8 @@ function block(id,x,y,args) {
 			}
 			else {
 				CanvasController.setLineCap("round")
-				CanvasController.setStrokeWidth(5)
-				CanvasController.line(X, y, X + width + 5, y)
+				CanvasController.setStrokeWidth(25)
+				CanvasController.line(X + 5, y + 2.5, X + width, y + 2.5)
 			}
 			CanvasController.setFillColour("black")
 			CanvasController.text(text, X + 2.5, y + 2.5, 5)
@@ -218,7 +218,8 @@ function block(id,x,y,args) {
 			}
 			else {
 				CanvasController.setLineCap("round")
-				CanvasController.line(X, y + 2.5, width + 10, 5)
+				CanvasController.setStrokeWidth(25)
+				CanvasController.line(X + 5, y + 2.5, X + width + 5, y + 2.5)
 			}
 			CanvasController.line(X + 2.5, y + 2.5, X + width + 2.5, y + 2.5)
 			if (MouseX >= X + 2.5 & MouseX <= X + width + 2.5) {
