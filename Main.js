@@ -178,6 +178,7 @@ function block(id,x,y,args) {
 	var Return = [] 
 	for (i in Blocks[id]["text"]) {
 		CanvasController.setFillColour(colours[Blocks[id]["cat"]])
+		CanvasController.setOutlineColour(colours[Blocks[id]["cat"]])
 		if (Blocks[id]["text"][i][0] == "text") {
 			var text = Blocks[id]["text"][i][1]
 			var width = CanvasController.measureTextWidth(text,5)
@@ -186,7 +187,8 @@ function block(id,x,y,args) {
 			}
 			else {
 				CanvasController.setLineCap("round")
-				CanvasController.line(X, y + 2.5, width + 5, 5)
+				CanvasController.setStrokeWidth(5)
+				CanvasController.line(X, y, X + width + 5, y)
 			}
 			CanvasController.setFillColour("black")
 			CanvasController.text(text, X + 2.5, y + 2.5, 5)
