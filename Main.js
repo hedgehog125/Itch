@@ -181,7 +181,13 @@ function block(id,x,y,args) {
 		if (Blocks[id]["text"][i][0] == "text") {
 			var text = Blocks[id]["text"][i][1]
 			var width = CanvasController.measureTextWidth(text,5)
-			CanvasController.fillRect(X,y,width + 5,5)
+			if (Block["type"] == "Block") {
+				CanvasController.fillRect(X,y,width + 5,5)
+			}
+			else {
+				CanvasController.setLineCap("round")
+				CanvasController.line(X, y + 2.5, width + 5, 5)
+			}
 			CanvasController.setFillColour("black")
 			CanvasController.text(text, X + 2.5, y + 2.5, 5)
 			X = X + width + 4
@@ -205,7 +211,13 @@ function block(id,x,y,args) {
 				var text = args[arg]["Input"]
 			}
 			var width = CanvasController.measureTextWidth(text,4)
-			CanvasController.fillRect(X,y,width + 10,5)
+			if (Block["type"] == "Block") {
+				CanvasController.fillRect(X,y,width + 10,5)
+			}
+			else {
+				CanvasController.setLineCap("round")
+				CanvasController.line(X, y + 2.5, width + 10, 5)
+			}
 			CanvasController.line(X + 2.5, y + 2.5, X + width + 2.5, y + 2.5)
 			if (MouseX >= X + 2.5 & MouseX <= X + width + 2.5) {
 				if (MouseY >= y - 12.5 & MouseY <= y + 12.5) {

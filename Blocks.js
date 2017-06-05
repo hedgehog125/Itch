@@ -70,6 +70,27 @@ Blocks = {
 			["arg","number","y","0"]
 		]
 	},
+	"GetX": {
+		"cat": "Motion",
+		"type": "Reporter",
+		"text": [
+			["text", "X"]
+		]
+	},
+	"GetY": {
+		"cat": "Motion",
+		"type": "Reporter",
+		"text": [
+			["text", "Y"]
+		]
+	},
+	"GetDir": {
+		"cat": "Motion",
+		"type": "Reporter",
+		"text": [
+			["text", "Dir"]
+		]
+	},
 	
 	
 	"SayFor": {
@@ -141,7 +162,20 @@ Blocks = {
 			["text","%"]
 		]
 	},
-	
+	"Cos": {
+		"cat": "Looks",
+		"type": "Reporter",
+		"text": [
+			["text", "Costume"]
+		]
+	},
+	"Size": {
+		"cat": "Looks",
+		"type": "Reporter",
+		"text": [
+			["text", "Size"]
+		]
+	},
 	
 	
 }
