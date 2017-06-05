@@ -181,7 +181,7 @@ function block(id,x,y,args) {
 		if (Blocks[id]["text"][i][0] == "text") {
 			var text = Blocks[id]["text"][i][1]
 			var width = CanvasController.measureTextWidth(text,5)
-			if (Block["type"] == "Block") {
+			if (Blocks[id]["type"] == "Block") {
 				CanvasController.fillRect(X,y,width + 5,5)
 			}
 			else {
@@ -211,7 +211,7 @@ function block(id,x,y,args) {
 				var text = args[arg]["Input"]
 			}
 			var width = CanvasController.measureTextWidth(text,4)
-			if (Block["type"] == "Block") {
+			if (Blocks[id]["type"] == "Block") {
 				CanvasController.fillRect(X,y,width + 10,5)
 			}
 			else {
