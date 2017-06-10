@@ -1,3 +1,17 @@
+// TODO:
+//	+ Allow reporter blocks to go in inputs.
+//	+ More blocks/categories.
+//	+ Be able to make sprites.
+//	+ Project compilation.  <- Not sure how I will do this yet.
+//	+ Be able to import costumes.
+//	+ Be able to import sounds.
+//	+ Text box.
+//	+ Console.
+//	+ Text version.
+
+
+
+
 // Use CanvasController not ctx!
 
 // Sort blocks by category
