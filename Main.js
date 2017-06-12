@@ -199,23 +199,22 @@ function block(id,x,y,args, outline) {
 			if (Blocks[id]["type"] == "Block") {
 				if (outline) {
 					CanvasController.setFillColour("white")
+					if (outline) {
+					CanvasController.setFillColour("white")
 					if (i == 0) {
-						CanvasController.fillRect(X - 1, y - 2, width + 6, 7)	
+						CanvasController.fillRect(X, y, width + 4, 5)	
+					}
+					if (i == Blocks[id]["text"].length - 1) {
+						CanvasController.fillRect(X + 1, y, width + 4, 5)
 					}
 					else {
-						if (i == Blocks[id]["text"].length - 1) {
-							CanvasController.fillRect(X, y - 2, width + 6, 7)
-						}
-						else {
-							CanvasController.fillRect(X, y - 2, width + 5, 7)
-						}
+						CanvasController.fillRect(X + 1, y, width + 4, 5)
 					}
 				}
 				CanvasController.setFillColour(colours[Blocks[id]["cat"]])
 				CanvasController.fillRect(X, y, width + 5, 5)
 			}
 			else {
-				var width = CanvasController.measureTextWidth(text,5)
 				if (outline) {
 					CanvasController.setFillColour("white")
 					if (i == 0) {
