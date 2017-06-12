@@ -182,14 +182,14 @@ function triangle(x,y,dir) {
     return false
 }
 
-function block(id,x,y,args) {
+function block(id,x,y,args, outline) {
 	CanvasController.setTextCentre("start")
 	CanvasController.setTextYCentre("middle")
 	var i = 0
 	var X = x
 	var arg = 0
 	var item = 0
-	var Return = [] 
+	var Return = []
 	for (i in Blocks[id]["text"]) {
 		CanvasController.setFillColour(colours[Blocks[id]["cat"]])
 		CanvasController.setOutlineColour(colours[Blocks[id]["cat"]])
@@ -197,16 +197,51 @@ function block(id,x,y,args) {
 			var text = Blocks[id]["text"][i][1]
 			var width = CanvasController.measureTextWidth(text,5)
 			if (Blocks[id]["type"] == "Block") {
-				CanvasController.fillRect(X,y,width + 5,5)
+				if (outline) {
+					CanvasController.setFillColour("white")
+					if (i == 0) {
+						CanvasController.fillRect(X - 1, y - 2, width + 6, 7)	
+					}
+					else {
+						if (i == Blocks[id]["text"].length - 1) {
+							CanvasController.fillRect(X, y - 2, width + 6, 7)
+						}
+						else {
+							CanvasController.fillRect(X, y - 2, width + 5, 7)
+						}
+					}
+				}
+				CanvasController.setFillColour(colours[Blocks[id]["cat"]])
+				CanvasController.fillRect(X, y, width + 5, 5)
 			}
 			else {
+				var width = CanvasController.measureTextWidth(text,5)
+				if (outline) {
+					CanvasController.setFillColour("white")
+					if (i == 0) {
+						CanvasController.fillRect(X, y, width + 4, 5)	
+					}
+					if (i == Blocks[id]["text"].length - 1) {
+						CanvasController.fillRect(X + 1, y, width + 4, 5)
+					}
+					else {
+						CanvasController.fillRect(X + 1, y, width + 4, 5)
+					}
+				}
+				CanvasController.setFillColour(colours[Blocks[id]["cat"]])
+				CanvasController.setOutlineColour(colours[Blocks[id]["cat"]])
 				CanvasController.setLineCap("round")
 				CanvasController.setStrokeWidth(25)
 				CanvasController.line(X + 5, y + 2.5, X + width, y + 2.5)
 			}
 			CanvasController.setFillColour("black")
 			CanvasController.text(text, X + 2.5, y + 2.5, 5)
-			X = X + width + 4
+			if (outline) {
+				X = X + width
+			}
+			else {
+				X = X + width + 4
+			}
 		}
 		else {
 			CanvasController.setOutlineColour("white")
@@ -220,29 +255,44 @@ function block(id,x,y,args) {
 					CanvasController.setLineCap("square")
 				}
 			}
-			if (text === undefined) {
-				text = Blocks[id]["text"][item][3]
+			if (args[arg] === undefined) {
+				var text = Blocks[id]["text"][item][3]
+				var type = "Input"
 			}
 			else {
 				var text = args[arg]["Input"]
+				var type = args[arg]["Type"]
 			}
-			var width = CanvasController.measureTextWidth(text,4)
+			if (type == "Input") {
+				var width = CanvasController.measureTextWidth(text,4)
+			}
 			if (Blocks[id]["type"] == "Block") {
 				CanvasController.fillRect(X,y,width + 10,5)
 			}
 			else {
-				CanvasController.setLineCap("round")
-				CanvasController.setStrokeWidth(25)
-				CanvasController.line(X + 5, y + 2.5, X + width + 5, y + 2.5)
+				if (type == "Input") {
+					CanvasController.setOutlineColour(colours[Blocks[id]["cat"]])
+					CanvasController.setLineCap("round")
+					CanvasController.setStrokeWidth(25)
+					CanvasController.line(X + 5, y + 2.5, X + width + 5, y + 2.5)
+				}
 			}
-			CanvasController.line(X + 2.5, y + 2.5, X + width + 2.5, y + 2.5)
+			CanvasController.setOutlineColour("white")
+			if (type == "Input") {
+				CanvasController.line(X + 2.5, y + 2.5, X + width + 2.5, y + 2.5)
+			}
+			else {
+				var width = block(text["id"], X, y, text["args"], true)[1]
+			}
 			if (MouseX >= X + 2.5 & MouseX <= X + width + 2.5) {
 				if (MouseY >= y - 12.5 & MouseY <= y + 12.5) {
 					Return[Return.length] = [arg,item]
 				}
 			}
 			CanvasController.setFillColour("black")
-			CanvasController.text(text, X + 2.5, y + 2.5, 4)
+			if (type == "Input") {
+				CanvasController.text(text, X + 2.5, y + 2.5, 4)
+			}
 			X = X + 7 + width
 			arg++
 		}
@@ -254,7 +304,7 @@ function block(id,x,y,args) {
 		}
 	}
 	CanvasController.setLineCap("round")
-	return [Return,X-x]
+	return [Return, X-x]
 }
 
 function blockChooser() {
