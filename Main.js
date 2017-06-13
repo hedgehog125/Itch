@@ -199,8 +199,6 @@ function block(id,x,y,args, outline) {
 			if (Blocks[id]["type"] == "Block") {
 				if (outline) {
 					CanvasController.setFillColour("white")
-					if (outline) {
-					CanvasController.setFillColour("white")
 					if (i == 0) {
 						CanvasController.fillRect(X, y, width + 4, 5)	
 					}
@@ -235,12 +233,7 @@ function block(id,x,y,args, outline) {
 			}
 			CanvasController.setFillColour("black")
 			CanvasController.text(text, X + 2.5, y + 2.5, 5)
-			if (outline) {
-				X = X + width
-			}
-			else {
-				X = X + width + 4
-			}
+			X = X + width + 4
 		}
 		else {
 			CanvasController.setOutlineColour("white")
@@ -282,6 +275,7 @@ function block(id,x,y,args, outline) {
 			}
 			else {
 				var width = block(text["id"], X, y, text["args"], true)[1]
+				X = X - 4
 			}
 			if (MouseX >= X + 2.5 & MouseX <= X + width + 2.5) {
 				if (MouseY >= y - 12.5 & MouseY <= y + 12.5) {
@@ -297,6 +291,7 @@ function block(id,x,y,args, outline) {
 		}
 		item++
 	}
+
 	if (MouseX >= x & MouseX <= X) {
 		if (MouseY >= y & MouseY <= y + 5) {
 			Return[Return.length] = "touching"
@@ -305,6 +300,7 @@ function block(id,x,y,args, outline) {
 	CanvasController.setLineCap("round")
 	return [Return, X-x]
 }
+
 
 function blockChooser() {
 	var i = 0
